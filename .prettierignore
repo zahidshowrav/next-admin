@@ -1,0 +1,16 @@
+# Ignore artifacts:
+node_modules/
+.next/
+package-lock.json
+pnpm-lock.yaml
+public/
+cache/
+*.log
+*.tmp
+dist/
+build/
+out/
+coverage/
+.env
+.env.local
+.env.production

@@ -1,3 +1,72 @@
 {
-	"extends": ["next/core-web-vitals", "next/typescript", "prettier"]
+	"root": true,
+	"env": {
+		"browser": true,
+		"es2023": true,
+		"node": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:jsx-a11y/recommended",
+		"plugin:prettier/recommended",
+		"plugin:import/recommended",
+		"plugin:import/typescript",
+		"next/core-web-vitals"
+	],
+	"plugins": [
+		"@typescript-eslint",
+		"react",
+		"react-hooks",
+		"jsx-a11y",
+		"import"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 2023,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"project": "./tsconfig.json"
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"rules": {
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{ "argsIgnorePattern": "^_" }
+		],
+		"@typescript-eslint/no-explicit-any": "warn",
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"react/react-in-jsx-scope": "off",
+		"react/prop-types": "off",
+		"jsx-a11y/anchor-is-valid": "off",
+		"jsx-a11y/click-events-have-key-events": "warn",
+		"prettier/prettier": "error",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+
+		// Import Rules
+		"import/no-unresolved": "error",
+		"import/order": [
+			"warn",
+			{
+				"groups": [
+					["builtin", "external"],
+					"internal",
+					["parent", "sibling", "index"]
+				],
+				"newlines-between": "always"
+			}
+		],
+		"import/newline-after-import": "warn",
+		"import/no-duplicates": "warn"
+	}
 }

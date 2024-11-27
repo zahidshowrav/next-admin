@@ -10,7 +10,15 @@
 		"type-check": "tsc --pretty --noEmit",
 		"format-check": "prettier --check .",
 		"format-all": "prettier --write .",
-		"format-files": "prettier --write"
+		"format-files": "prettier --write",
+		"prepare": "husky"
+	},
+	"lint-staged": {
+		"**/*.{js,jsx,ts,tsx}": [
+			"eslint --fix",
+			"tsc-files --noEmit",
+			"prettier --write"
+		]
 	},
 	"dependencies": {
 		"next": "15.0.3",
@@ -31,9 +39,12 @@
 		"eslint-plugin-prettier": "^5.2.1",
 		"eslint-plugin-react": "^7.37.2",
 		"eslint-plugin-react-hooks": "^5.0.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.2.10",
 		"postcss": "^8",
 		"prettier": "3.4.1",
 		"tailwindcss": "^3.4.1",
+		"tsc-files": "^1.1.4",
 		"typescript": "^5"
 	}
 }

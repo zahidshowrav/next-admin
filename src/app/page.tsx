@@ -8,6 +8,8 @@ const Home = () => {
 	};
 
 	useEffect(() => {
+		// eslint-disable-next-line no-console
+		console.log('hello world');
 		hello('John Doe');
 	}, []);
 

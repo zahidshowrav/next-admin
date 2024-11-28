@@ -30,6 +30,7 @@
 			"@utils/*": ["utils/*"],
 			"@constants/*": ["constants/*"],
 			"@hooks/*": ["hooks/*"],
+			"@lib/*": ["lib/*"],
 			"@contexts/*": ["contexts/*"]
 		}
 	},

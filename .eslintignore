@@ -7,3 +7,4 @@ dist/
 coverage/
 cache/
 .husky/
+lint-staged.config.js

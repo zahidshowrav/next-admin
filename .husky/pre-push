@@ -1,0 +1,8 @@
+#!/bin/bash
+branch_name=$(git symbolic-ref --short HEAD)
+
+if [ "$branch_name" == "master" ]; then
+  echo "Direct push to master is not allowed."
+  echo "Create a pull request to merge changes into master."
+  exit 1
+fi

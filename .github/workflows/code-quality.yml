@@ -18,15 +18,14 @@ jobs:
             - name: Set up Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: 16 # Adjust Node.js version as per your project
-                  cache: 'pnpm'
+                  node-version: 22.11.0
 
             # Install pnpm
             - name: Install pnpm
               run: npm install -g pnpm
 
             # Cache pnpm store
-            - name: Cache pnpm dependencies
+            - name: Cache pnpm store
               uses: actions/cache@v3
               with:
                   path: ~/.pnpm-store

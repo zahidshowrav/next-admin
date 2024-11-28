@@ -1,4 +1,8 @@
+'use client';
+
 import { useEffect } from 'react';
+
+import { Button } from '@ui/button';
 
 const Home = () => {
 	const hello = (text: string) => {
@@ -13,7 +17,14 @@ const Home = () => {
 		hello('John Doe');
 	}, []);
 
-	return <div>Home Page</div>;
+	return (
+		<div className="p-32">
+			<h1>Home Page</h1>
+			<div className="mt-8">
+				<Button>Primary Button</Button>
+			</div>
+		</div>
+	);
 };
 
 export default Home;

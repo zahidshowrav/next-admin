@@ -50,7 +50,8 @@
 
 		// JSX a11y rules
 		"jsx-a11y/anchor-is-valid": "off",
-		"jsx-a11y/click-events-have-key-events": "warn",
+		"jsx-a11y/click-events-have-key-events": "off",
+		"jsx-a11y/no-static-element-interactions": "off",
 
 		// Typescript eslint Rules
 		"@typescript-eslint/no-explicit-any": "error",

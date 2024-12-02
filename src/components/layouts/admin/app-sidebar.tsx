@@ -20,11 +20,13 @@ import {
 	SidebarHeader,
 	SidebarRail
 } from '@ui/sidebar';
+import { IS_MULTI_TENANT } from 'constents/common';
 
 import { NavMain } from './app-main';
 import { NavProjects } from './nav-projects';
 import { NavUser } from './nav-user';
 import { TeamSwitcher } from './team-switcher';
+import SidebarLogo from './sidebar-logo';
 
 // This is sample data.
 const data = {
@@ -155,6 +157,7 @@ const data = {
 		}
 	]
 };
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 	return (
 		<Sidebar
@@ -162,7 +165,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 			{...props}
 		>
 			<SidebarHeader>
-				<TeamSwitcher teams={data.teams} />
+				{IS_MULTI_TENANT ? (
+					<TeamSwitcher teams={data.teams} />
+				) : (
+					<SidebarLogo />
+				)}
 			</SidebarHeader>
 			<SidebarContent>
 				<NavMain items={data.navMain} />

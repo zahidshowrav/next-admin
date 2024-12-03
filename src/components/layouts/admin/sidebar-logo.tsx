@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { cn } from '@utils/helpers';
-import { useSidebar } from '@ui/sidebar';
-import { Skeleton } from '@ui/skeleton';
+import { cn } from '@/utils/helpers';
+import { useSidebar } from '@/ui/sidebar';
+import { Skeleton } from '@/ui/skeleton';
 
 const SidebarLogo = () => {
 	const router = useRouter();

@@ -19,14 +19,14 @@ import {
 	SidebarFooter,
 	SidebarHeader,
 	SidebarRail
-} from '@ui/sidebar';
-import { IS_MULTI_TENANT } from 'constents/common';
+} from '@/ui/sidebar';
+import { IS_MULTI_TENANT } from '@/constants/common';
 
-import { NavMain } from './app-main';
 import { NavProjects } from './nav-projects';
 import { NavUser } from './nav-user';
 import { TeamSwitcher } from './team-switcher';
 import SidebarLogo from './sidebar-logo';
+import { NavMain } from './app-main';
 
 // This is sample data.
 const data = {

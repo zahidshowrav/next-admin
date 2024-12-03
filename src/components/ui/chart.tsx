@@ -9,7 +9,7 @@ import {
 	ValueType
 } from 'recharts/types/component/DefaultTooltipContent';
 
-import { cn } from '@utils/helpers';
+import { cn } from '@/utils/helpers';
 
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: '', dark: '.dark' } as const;

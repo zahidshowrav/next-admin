@@ -4,8 +4,8 @@ import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
-import { Button } from '@ui/button';
-import { cn } from '@utils/helpers';
+import { Button } from '@/ui/button';
+import { cn } from '@/utils/helpers';
 
 interface IThemeSwitcherProps {
 	className?: string;

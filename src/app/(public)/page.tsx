@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
-import { Button } from '@ui/button';
-import { Card } from '@ui/card';
+import { Button } from '@/ui/button';
+import { Card } from '@/ui/card';
 
 export const metadata: Metadata = {
 	title: 'NextAdmin Landing',

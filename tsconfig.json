@@ -23,6 +23,8 @@
 			"@/*": ["./src/*"],
 			"@components/*": ["components/*"],
 			"@ui/*": ["components/ui/*"],
+			"@layouts/*": ["components/layouts/*"],
+			"@features/*": ["components/features/*"],
 			"@snippets/*": ["components/snippets/*"],
 			"@enums/*": ["enums/*"],
 			"@types/*": ["types/*"],

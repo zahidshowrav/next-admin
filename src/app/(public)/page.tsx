@@ -1,25 +1,16 @@
-'use client';
-
-import { useEffect } from 'react';
+import { Metadata } from 'next';
 
 import { Button } from '@ui/button';
-import { Card } from '@components/ui/card';
+import { Card } from '@ui/card';
+
+export const metadata: Metadata = {
+	title: 'NextAdmin Landing',
+	description: 'Landing page'
+};
 
 const Home = () => {
-	const hello = (text: string) => {
-		// eslint-disable-next-line no-console
-		console.log('Hello ', text);
-		return text;
-	};
-
-	useEffect(() => {
-		// eslint-disable-next-line no-console
-		console.log('hello world');
-		hello('John Doe');
-	}, []);
-
 	return (
-		<div className="p-32">
+		<div className="max-w-[80%] py-10 px-4 mx-auto">
 			<h1 className="mb-8">Home Page</h1>
 			<Card className="p-4">
 				<h1 className="font-bold text-2xl">Lorem ipsum dolor sit</h1>

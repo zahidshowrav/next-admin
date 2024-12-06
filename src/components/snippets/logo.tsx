@@ -3,28 +3,35 @@
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 import { cn } from '@/utils/helpers';
 import { Skeleton } from '@/ui/skeleton';
+import { siteConfig } from '@/configs/site';
+import { useMounted } from '@/hooks/use-mounted';
 
 interface ILogoProps {
+	iconHeight?: number;
+	iconWidth?: number;
 	showLogoText?: boolean;
 	layout?: 'DASHBOARD' | 'PUBLIC' | 'AUTH';
 	className?: string;
+	classNames?: {
+		logoText?: string;
+	};
 }
 
 const Logo = (props: ILogoProps) => {
-	const { showLogoText = true, className = '' } = props;
+	const {
+		iconHeight = 28,
+		iconWidth = 28,
+		showLogoText = true,
+		className = '',
+		classNames
+	} = props;
 
 	const router = useRouter();
 	const { theme } = useTheme();
-
-	const [mounted, setMounted] = useState(false);
-
-	useEffect(() => {
-		if (!mounted) setMounted(true);
-	}, [mounted]);
+	const mounted = useMounted();
 
 	if (!mounted) {
 		return (
@@ -56,24 +63,19 @@ const Logo = (props: ILogoProps) => {
 						? '/logo-icon-light.png'
 						: '/logo-icon-dark.png'
 				}
-				height={28}
-				width={28}
+				height={iconHeight}
+				width={iconWidth}
 				alt="logo"
 			/>
-			{/* Use following element if necessary */}
-			{/* <h3 className="truncate text-foreground text-lg">Next Admin</h3> */}
-			{showLogoText && (
-				<Image
-					src={
-						theme === 'light'
-							? '/logo-text-light.png'
-							: '/logo-text-dark.png'
-					}
-					height={20}
-					width={128}
-					alt="Next Admin"
-				/>
-			)}
+			<h3
+				className={cn(
+					'truncate text-foreground text-base font-medium hidden',
+					!showLogoText ? 'sm:hidden' : 'sm:inline-block',
+					classNames?.logoText
+				)}
+			>
+				{siteConfig.name}
+			</h3>
 		</div>
 	);
 };

@@ -1,23 +1,11 @@
-// import LoginForm from '@/features/auth/login-form';
-
-// const LoginPage = () => {
-// 	return (
-// 		<div className="flex h-screen w-full items-center justify-center px-4">
-// 			<LoginForm />
-// 		</div>
-// 	);
-// };
-
-// export default LoginPage;
-
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 
-import { buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/ui/button';
 import { cn } from '@/utils/helpers';
-import LoginForm from '@/components/features/auth/login-form';
-import LoginContent from '@/components/features/auth/login-content';
+import LoginForm from '@/features/auth/login-form';
+import LoginContent from '@/features/auth/login-content';
 
 export const metadata: Metadata = {
 	title: 'Login',

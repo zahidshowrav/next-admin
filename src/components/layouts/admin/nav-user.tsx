@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import {
 	BadgeCheck,
 	Bell,
@@ -9,7 +10,7 @@ import {
 	Sparkles
 } from 'lucide-react';
 
-import { Avatar, AvatarFallback, AvatarImage } from '@ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -18,13 +19,13 @@ import {
 	DropdownMenuLabel,
 	DropdownMenuSeparator,
 	DropdownMenuTrigger
-} from '@ui/dropdown-menu';
+} from '@/ui/dropdown-menu';
 import {
 	SidebarMenu,
 	SidebarMenuButton,
 	SidebarMenuItem,
 	useSidebar
-} from '@ui/sidebar';
+} from '@/ui/sidebar';
 
 export function NavUser({
 	user
@@ -35,6 +36,7 @@ export function NavUser({
 		avatar: string;
 	};
 }) {
+	const router = useRouter();
 	const { isMobile } = useSidebar();
 
 	return (
@@ -95,28 +97,31 @@ export function NavUser({
 						</DropdownMenuLabel>
 						<DropdownMenuSeparator />
 						<DropdownMenuGroup>
-							<DropdownMenuItem>
+							<DropdownMenuItem className="cursor-pointer">
 								<Sparkles />
 								Upgrade to Pro
 							</DropdownMenuItem>
 						</DropdownMenuGroup>
 						<DropdownMenuSeparator />
 						<DropdownMenuGroup>
-							<DropdownMenuItem>
+							<DropdownMenuItem className="cursor-pointer">
 								<BadgeCheck />
 								Account
 							</DropdownMenuItem>
-							<DropdownMenuItem>
+							<DropdownMenuItem className="cursor-pointer">
 								<CreditCard />
 								Billing
 							</DropdownMenuItem>
-							<DropdownMenuItem>
+							<DropdownMenuItem className="cursor-pointer">
 								<Bell />
 								Notifications
 							</DropdownMenuItem>
 						</DropdownMenuGroup>
 						<DropdownMenuSeparator />
-						<DropdownMenuItem>
+						<DropdownMenuItem
+							className="cursor-pointer"
+							onClick={() => router.push('/')}
+						>
 							<LogOut />
 							Log out
 						</DropdownMenuItem>

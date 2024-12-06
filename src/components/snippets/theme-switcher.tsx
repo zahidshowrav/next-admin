@@ -2,30 +2,35 @@
 
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
 
-import { Button } from '@ui/button';
-import { cn } from '@utils/helpers';
+import { Button } from '@/ui/button';
+import { cn } from '@/utils/helpers';
+import { useMounted } from '@/hooks/use-mounted';
 
 interface IThemeSwitcherProps {
 	className?: string;
+	buttonVariant?:
+		| 'outline'
+		| 'default'
+		| 'destructive'
+		| 'secondary'
+		| 'ghost'
+		| 'link'
+		| null
+		| undefined;
 }
+
 const ThemeSwitcher = (props: IThemeSwitcherProps) => {
-	const { className = '' } = props;
-	const [mounted, setMounted] = useState(false);
+	const { className = '', buttonVariant = 'outline' } = props;
+
 	const { setTheme, theme } = useTheme();
+	const mounted = useMounted();
 
-	useEffect(() => {
-		if (!mounted) setMounted(true);
-	}, [mounted]);
-
-	if (!mounted) {
-		return null;
-	}
+	if (!mounted) return <></>;
 
 	return (
 		<Button
-			variant="outline"
+			variant={buttonVariant}
 			size="icon"
 			className={cn('h-7 w-7', className)}
 			onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}

@@ -18,22 +18,23 @@ import {
 	SidebarContent,
 	SidebarFooter,
 	SidebarHeader,
-	SidebarRail
-} from '@ui/sidebar';
-import { IS_MULTI_TENANT } from 'constents/common';
+	SidebarRail,
+	useSidebar
+} from '@/ui/sidebar';
+import { IS_MULTI_TENANT } from '@/constants/common';
+import Logo from '@/snippets/logo';
 
-import { NavMain } from './app-main';
 import { NavProjects } from './nav-projects';
 import { NavUser } from './nav-user';
 import { TeamSwitcher } from './team-switcher';
-import SidebarLogo from './sidebar-logo';
+import { NavMain } from './app-main';
 
 // This is sample data.
 const data = {
 	user: {
 		name: 'shadcn',
-		email: 'm@example.com',
-		avatar: '/avatars/shadcn.jpg'
+		email: 'hello@zahidshowrav.me',
+		avatar: 'https://avatars.githubusercontent.com/u/26140192'
 	},
 	teams: [
 		{
@@ -159,6 +160,8 @@ const data = {
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+	const { open } = useSidebar();
+
 	return (
 		<Sidebar
 			collapsible="icon"
@@ -168,7 +171,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 				{IS_MULTI_TENANT ? (
 					<TeamSwitcher teams={data.teams} />
 				) : (
-					<SidebarLogo />
+					<Logo
+						showLogoText={open}
+						classNames={{
+							logoText: 'inline-block sm:inline-block'
+						}}
+					/>
 				)}
 			</SidebarHeader>
 			<SidebarContent>

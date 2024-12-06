@@ -33,8 +33,8 @@ import { NavMain } from './app-main';
 const data = {
 	user: {
 		name: 'shadcn',
-		email: 'm@example.com',
-		avatar: '/avatars/shadcn.jpg'
+		email: 'hello@zahidshowrav.me',
+		avatar: 'https://avatars.githubusercontent.com/u/26140192'
 	},
 	teams: [
 		{
@@ -171,7 +171,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 				{IS_MULTI_TENANT ? (
 					<TeamSwitcher teams={data.teams} />
 				) : (
-					<Logo showLogoText={open} />
+					<Logo
+						showLogoText={open}
+						classNames={{
+							logoText: 'inline-block sm:inline-block'
+						}}
+					/>
 				)}
 			</SidebarHeader>
 			<SidebarContent>
